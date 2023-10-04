@@ -9,15 +9,15 @@ function DrawTextOnScreen(text)
     DrawText(0.8, 0.95)
 end
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         local Speed = GetEntitySpeed(GetVehiclePedIsIn(GetPlayerPed(-1), false)) * 3.6
 
         if GetVehiclePedIsIn(GetPlayerPed(-1)) ~= 0 then
             DrawTextOnScreen(string.format("%.1f", tostring(Speed)) .. " KM/H")
         else
-            Citizen.Wait(100)
+            Wait(100)
         end
-        Citizen.Wait(0)
+        Wait(0)
     end
 end)
